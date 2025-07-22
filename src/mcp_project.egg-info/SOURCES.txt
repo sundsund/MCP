@@ -1,0 +1,9 @@
+README.md
+setup.py
+src/mcp_project/__init__.py
+src/mcp_project/main.py
+src/mcp_project.egg-info/PKG-INFO
+src/mcp_project.egg-info/SOURCES.txt
+src/mcp_project.egg-info/dependency_links.txt
+src/mcp_project.egg-info/top_level.txt
+tests/test_main.py
