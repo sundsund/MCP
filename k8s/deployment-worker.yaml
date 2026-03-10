@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dispute-worker
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: dispute-worker
+  template:
+    metadata:
+      labels:
+        app: dispute-worker
+    spec:
+      containers:
+      - name: worker
+        image: your-repo/dispute-worker:latest
+        envFrom:
+        - configMapRef:
+            name: dispute-resolution-config
+        - secretRef:
+            name: dispute-resolution-secrets
+        command: ["python", "-m", "mcp_project.worker.main"]

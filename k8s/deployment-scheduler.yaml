@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dispute-scheduler
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dispute-scheduler
+  template:
+    metadata:
+      labels:
+        app: dispute-scheduler
+    spec:
+      containers:
+      - name: scheduler
+        image: your-repo/dispute-scheduler:latest
+        envFrom:
+        - configMapRef:
+            name: dispute-resolution-config
+        - secretRef:
+            name: dispute-resolution-secrets
+        command: ["python", "-m", "mcp_project.scheduler.main"]
