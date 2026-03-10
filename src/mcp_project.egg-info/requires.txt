@@ -1,0 +1,7 @@
+SQLAlchemy
+confluent-kafka
+APScheduler
+psycopg2-binary
+
+[test]
+pytest
